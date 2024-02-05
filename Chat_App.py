@@ -1,10 +1,9 @@
-## Yonatan GPT
+## Yonatan GPT App
 
 from openai import OpenAI
 import streamlit as st
 
 # settings
-
 file_path = 'Yonatan_Rabinovich.txt'
 
 with open(file_path, 'r') as file:
