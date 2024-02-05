@@ -10,7 +10,7 @@ with open(file_path, 'r') as file:
     sys_message = file.read()
 
 
-st.title("Yonatan's GPT")
+st.title("Yonatan Rabinovich's AI Assistant 🤖")
 
 # Disclaimer
 disclaimer = """
