@@ -10,7 +10,7 @@ with open(file_path, 'r') as file:
     sys_message = file.read()
 
 
-st.title("Yonatan Rabinovich's AI Assistant 🤖")
+st.title("Diplomat's AI Assistant 🤖")
 
 # Disclaimer
 disclaimer = """
@@ -39,7 +39,7 @@ with st.sidebar:
 client = OpenAI(api_key=openai_api_key)
 
 if "openai_model" not in st.session_state:
-    st.session_state["openai_model"] = "gpt-3.5-turbo"
+    st.session_state["openai_model"] = "gpt-4o-mini"
 
 if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "system", "content": sys_message}]
@@ -48,7 +48,7 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     
     if message["role"]=='assistant':
-        with st.chat_message(message["role"], avatar='me.jpg'):
+        with st.chat_message(message["role"], avatar='🤖'):
             st.markdown(message["content"])
     elif message["role"]=='user':
         with st.chat_message(message["role"], avatar=user_avatar):
@@ -59,7 +59,7 @@ if prompt := st.chat_input("Ask me anything proffesional about Yonatan"):
     with st.chat_message("user", avatar=user_avatar):
         st.markdown(prompt)
 
-    with st.chat_message("assistant", avatar='me.jpg'):
+    with st.chat_message("assistant", avatar='🤖'):
         stream = client.chat.completions.create(
             model=st.session_state["openai_model"],
             messages=[
